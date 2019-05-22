@@ -1,3 +1,8 @@
+use strict;
+use warnings;
+use utf8;
+## no critic (StringyEval)
+
 use Test::More;
 use File::Find;
 
@@ -14,6 +19,7 @@ if(!eval 'use Test::CPAN::Changes; 1') {
   *Test::CPAN::Changes::changes_file_ok = sub { SKIP: { skip "changes_ok(@_) (Test::CPAN::Changes is required)", 4 } };
 }
 
+my @files;
 find(
   {
     wanted => sub { /\.pm$/ and push @files, $File::Find::name },
