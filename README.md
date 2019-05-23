@@ -25,7 +25,7 @@ SVG::Barcode::QRCode - Generator for SVG based QR Codes
 
 # DESCRIPTION
 
-[SVG::Barcode::QRCode](https://metacpan.org/pod/SVG::Barcode::QRCode) is a Generator for SVG based QR Codes.
+[SVG::Barcode::QRCode](https://metacpan.org/pod/SVG::Barcode::QRCode) is a generator for SVG based QR Codes.
 
 # FUNCTIONS
 
