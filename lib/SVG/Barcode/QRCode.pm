@@ -49,7 +49,7 @@ SVG::Barcode::QRCode - Generator for SVG based QR Codes
 
     use SVG::Barcode::QRCode;
 
-    my %params = (
+    my %params = (    # defaults
       background => 'white',
       foreground => 'black',
       level      => 'M',

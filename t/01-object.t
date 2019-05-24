@@ -37,6 +37,8 @@ for (sort keys %defaults) {
   is $object->param($_), $defaults{$_}, "$_ is $defaults{$_}";
 }
 
+ok $package->new(\%defaults), 'Create again using defaults';
+
 my %non_defaults = (
   level => 'Q',
   size  => 2,
