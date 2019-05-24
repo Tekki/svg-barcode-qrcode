@@ -12,7 +12,7 @@ our @EXPORT_OK = qw|plot_qrcode|;
 
 use Text::QRCode;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 use constant DEFAULTS => {
   background => 'white',
