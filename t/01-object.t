@@ -25,12 +25,11 @@ can_ok $object, $_ for @methods;
 
 note 'Parameters';
 my %defaults = (
-  level      => 'M',
-  size       => 1,
-  version    => 0,
+  SVG::Barcode::DEFAULTS->%*,
+  level   => 'M',
+  dotsize => 1,
+  version => 0,
 );
-$defaults{$_} = SVG::Barcode::DEFAULTS->{$_}
-  for keys SVG::Barcode::DEFAULTS->%*;
 
 for (sort keys %defaults) {
   can_ok $object, $_;
@@ -40,10 +39,11 @@ for (sort keys %defaults) {
 ok $package->new(%defaults), 'Create again using defaults';
 
 my %non_defaults = (
-  level => 'Q',
-  size  => 2,
+  level   => 'Q',
+  dotsize => 2,
 );
-ok $object = $package->new(%non_defaults), 'Create object with non-default parameters';
+ok $object = $package->new(%non_defaults),
+  'Create object with non-default parameters';
 for (sort keys %non_defaults) {
   is $object->$_, $non_defaults{$_}, "$_ is $non_defaults{$_}";
 }
@@ -53,8 +53,7 @@ for (sort keys %defaults) {
 }
 
 is $object->level('Q')->level, 'Q', 'Set level to Q';
-is $object->level('')->level, $defaults{level},
-  'Set level back to default';
+is $object->level('')->level, $defaults{level}, 'Set level back to default';
 
 note 'Plot';
 ok $object = $package->new, 'Create object';
@@ -63,8 +62,7 @@ ok my $svg = $object->width(200)->height(200)->plot($text), 'Plot QR Code';
 is $svg, slurp("$FindBin::Bin/resources/Tekki_200x200_black.svg"),
   'Content is correct';
 
-is $object->foreground('red')->level('H'), $object,
-  'Change color and level';
+is $object->foreground('red')->level('H'), $object, 'Change color and level';
 $text = 'Szőlőlé';
 ok $svg = $object->plot($text), 'Plot unicode text';
 is $svg, slurp("$FindBin::Bin/resources/Grapejuice_200x200_H_red.svg"),

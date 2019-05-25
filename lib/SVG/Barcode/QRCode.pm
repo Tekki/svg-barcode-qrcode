@@ -15,9 +15,9 @@ use Text::QRCode;
 our $VERSION = '0.03';
 
 use constant DEFAULTS => {
-  level      => 'M',
-  size       => 1,
-  version    => 0,
+  dotsize => 1,
+  level   => 'M',
+  version => 0,
 };
 
 SVG::Barcode::_param(__PACKAGE__, $_, DEFAULTS->{$_}) for keys DEFAULTS->%*;
@@ -48,9 +48,10 @@ SVG::Barcode::QRCode - Generator for SVG based QR Codes
     use SVG::Barcode::QRCode;
 
     my $qrcode = SVG::Barcode::QRCode->new;
+    my $svg    = $qrcode->plot('https://perldoc.pl');
 
     $qrcode->level;         # M
-    $qrcode->size;          # 1
+    $qrcode->dotsize;       # 1
     $qrcode->version;       # 0
                             # from SVG::Barcode:
     $qrcode->foreground;    # black
@@ -66,8 +67,6 @@ SVG::Barcode::QRCode - Generator for SVG based QR Codes
       margin => 4,
     );
     $qrcode = SVG::Barcode::QRCode->new(%params);
-
-    my $svg = $qrcode->plot('https://perldoc.pl');
 
     # use as function
     use SVG::Barcode::QRCode 'plot_qrcode';
@@ -116,6 +115,14 @@ L<id|SVG::Barcode/id>,
 L<margin|SVG::Barcode/margin>,
 L<width|SVG::Barcode/width>.
 
+=head2 dotsize
+
+    $value  = $qrcode->dotsize;
+    $qrcode = $qrcode->dotsize($newvalue);
+    $qrcode = $qrcode->dotsize('');          # 1
+
+Getter and setter for the size of the dots. Default C<1>.
+
 =head2 level
 
     $value  = $qrcode->level;
@@ -124,14 +131,6 @@ L<width|SVG::Barcode/width>.
 
 Getter and setter for the error correction level.
 One of one of C<L> (low), C<M> (medium), C<Q> (quartile), C<H> (high). Default C<M>.
-
-=head2 size
-
-    $value  = $qrcode->size;
-    $qrcode = $qrcode->size($newvalue);
-    $qrcode = $qrcode->size('');          # 1
-
-Getter and setter for the size of the dots. Default C<1>.
 
 =head2 version
 
