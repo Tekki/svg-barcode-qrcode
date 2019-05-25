@@ -1,5 +1,10 @@
 Revision history for perl distribution SVG-Barcode-QRCode
 
+0.10 Not Released
+ BREAKING CHANGES
+ - Require SVG::Barcode 0.10
+ - Change parameters to methods
+
 0.03 2019-05-24T15:18:49+0200
  - Require SVG::Barcode 0.03 to solve issue with default version 0
 
