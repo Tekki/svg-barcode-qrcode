@@ -12,7 +12,7 @@ our @EXPORT_OK = qw|plot_qrcode|;
 
 use Text::QRCode;
 
-our $VERSION = '0.03';
+our $VERSION = '0.10';
 
 use constant DEFAULTS => {
   dotsize => 1,

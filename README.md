@@ -6,22 +6,31 @@ SVG::Barcode::QRCode - Generator for SVG based QR Codes
 
     use SVG::Barcode::QRCode;
 
-    my %params = (    # defaults
-      background => 'white',
-      foreground => 'black',
-      level      => 'M',
-      margin     => 10,
-      size       => 5,
-      version    => 0,
-    );
-    my $qrcode = SVG::Barcode::QRCode->new(\%params);
+    my $qrcode = SVG::Barcode::QRCode->new;
     my $svg    = $qrcode->plot('https://perldoc.pl');
-    my $svg2   = $qrcode->param(foreground => 'red')->plot('https://perldoc.pl');
+
+    $qrcode->level;         # M
+    $qrcode->dotsize;       # 1
+    $qrcode->version;       # 0
+                            # from SVG::Barcode:
+    $qrcode->foreground;    # black
+    $qrcode->background;    # white
+    $qrcode->margin;        # 2
+    $qrcode->id;
+    $qrcode->class;
+    $qrcode->width;
+    $qrcode->height;
+
+    my %params = (
+      level  => 'H',
+      margin => 4,
+    );
+    $qrcode = SVG::Barcode::QRCode->new(%params);
 
     # use as function
     use SVG::Barcode::QRCode 'plot_qrcode';
 
-    my $svg = plot_qrcode('https://perldoc.pl', \%params);
+    $svg = plot_qrcode('https://perldoc.pl', %params);
 
 # DESCRIPTION
 
@@ -33,7 +42,7 @@ SVG::Barcode::QRCode - Generator for SVG based QR Codes
 
     use SVG::Barcode::QRCode 'plot_qrcode';
 
-    my $svg = plot_qrcode($text, \%params);
+    $svg = plot_qrcode($text, %params);
 
 Returns a QR Code using the provided text and parameters.
 
@@ -41,46 +50,55 @@ Returns a QR Code using the provided text and parameters.
 
 ## new
 
-    $qrcode = SVG::Barcode::QRCode->new(\%params);
-    $qrcode = SVG::Barcode::QRCode->new;             # create with defaults
+    $qrcode = SVG::Barcode::QRCode->new;            # create with defaults
+    $qrcode = SVG::Barcode::QRCode->new(%params);
 
-Creates a new QR Code plotter. Inherited from ["new" in SVG::Barcode](https://metacpan.org/pod/SVG::Barcode#new).
-
-Accepted parameters are:
-
-- background
-
-    Color of the background. Default `'white'`.
-
-- foreground
-
-    Color of the dots. Default `'black'`.
-
-- level
-
-    Error correction level, one of `'L'` (low), `'M'` (medium), `'Q'` (quartile), `'H'` (high). Default `'M'`.
-
-- margin
-
-    Margin around the code. Default `10`.
-
-- size
-
-    Size of the dots. Default `5`.
-
-- version
-
-    Symbol version from `1` to `40`. `0` will adapt the version to the required capacity. Default `0`.
+Creates a new QR Code plotter. Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG::Barcode#new).
 
 # METHODS
 
-## param
-
-Getter and setter for the parameters. Inherited from ["param" in SVG::Barcode](https://metacpan.org/pod/SVG::Barcode#param).
-
 ## plot
 
-Creates a SVG code. Inherited from ["plot" in SVG::Barcode](https://metacpan.org/pod/SVG::Barcode#plot).
+    $svg = $qrcode->plot($text);
+
+Creates a SVG code. Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG::Barcode#plot).
+
+# PARAMETERS
+
+Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG::Barcode):
+[background](https://metacpan.org/pod/SVG::Barcode#background),
+[class](https://metacpan.org/pod/SVG::Barcode#class),
+[foreground](https://metacpan.org/pod/SVG::Barcode#foreground),
+[height](https://metacpan.org/pod/SVG::Barcode#height),
+[id](https://metacpan.org/pod/SVG::Barcode#id),
+[margin](https://metacpan.org/pod/SVG::Barcode#margin),
+[width](https://metacpan.org/pod/SVG::Barcode#width).
+
+## dotsize
+
+    $value  = $qrcode->dotsize;
+    $qrcode = $qrcode->dotsize($newvalue);
+    $qrcode = $qrcode->dotsize('');          # 1
+
+Getter and setter for the size of the dots. Default `1`.
+
+## level
+
+    $value  = $qrcode->level;
+    $qrcode = $qrcode->level($newvalue);
+    $qrcode = $qrcode->level('');          # M
+
+Getter and setter for the error correction level.
+One of one of `L` (low), `M` (medium), `Q` (quartile), `H` (high). Default `M`.
+
+## version
+
+    $value  = $qrcode->version;
+    $qrcode = $qrcode->version($newvalue);
+    $qrcode = $qrcode->version('');          # 0
+
+Getter and setter for the symbol version.
+From `1` to `40`. `0` will adapt the version to the required capacity. Default `0`.
 
 # SEE ALSO
 
