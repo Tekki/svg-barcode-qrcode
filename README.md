@@ -20,6 +20,7 @@ SVG::Barcode::QRCode - Generator for SVG based QR Codes
     $qrcode->class;
     $qrcode->width;
     $qrcode->height;
+    $qrcode->scale;
 
     my %params = (
       level  => 'H',
@@ -72,6 +73,7 @@ Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG::Barcode):
 [height](https://metacpan.org/pod/SVG::Barcode#height),
 [id](https://metacpan.org/pod/SVG::Barcode#id),
 [margin](https://metacpan.org/pod/SVG::Barcode#margin),
+[scale](https://metacpan.org/pod/SVG::Barcode#scale),
 [width](https://metacpan.org/pod/SVG::Barcode#width).
 
 ## dotsize
