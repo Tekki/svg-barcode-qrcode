@@ -1,0 +1,6 @@
+---
+compose_file: containertest/perl-24-latest.yml
+debian_packages:
+  - libqrencode-dev
+forks: 4
+module: SVG::Barcode::QRCode
