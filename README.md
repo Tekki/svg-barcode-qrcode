@@ -35,7 +35,7 @@ SVG::Barcode::QRCode - Generator for SVG based QR Codes
 
 # DESCRIPTION
 
-[SVG::Barcode::QRCode](https://metacpan.org/pod/SVG::Barcode::QRCode) is a generator for SVG based QR Codes.
+[SVG::Barcode::QRCode](https://metacpan.org/pod/SVG%3A%3ABarcode%3A%3AQRCode) is a generator for SVG based QR Codes.
 
 # FUNCTIONS
 
@@ -54,7 +54,7 @@ Returns a QR Code using the provided text and parameters.
     $qrcode = SVG::Barcode::QRCode->new;            # create with defaults
     $qrcode = SVG::Barcode::QRCode->new(%params);
 
-Creates a new QR Code plotter. Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG::Barcode#new).
+Creates a new QR Code plotter. Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG%3A%3ABarcode#new).
 
 # METHODS
 
@@ -62,19 +62,19 @@ Creates a new QR Code plotter. Inherited from [SVG::Barcode](https://metacpan.or
 
     $svg = $qrcode->plot($text);
 
-Creates a SVG code. Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG::Barcode#plot).
+Creates a SVG code. Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG%3A%3ABarcode#plot).
 
 # PARAMETERS
 
-Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG::Barcode):
-[background](https://metacpan.org/pod/SVG::Barcode#background),
-[class](https://metacpan.org/pod/SVG::Barcode#class),
-[foreground](https://metacpan.org/pod/SVG::Barcode#foreground),
-[height](https://metacpan.org/pod/SVG::Barcode#height),
-[id](https://metacpan.org/pod/SVG::Barcode#id),
-[margin](https://metacpan.org/pod/SVG::Barcode#margin),
-[scale](https://metacpan.org/pod/SVG::Barcode#scale),
-[width](https://metacpan.org/pod/SVG::Barcode#width).
+Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG%3A%3ABarcode):
+[background](https://metacpan.org/pod/SVG%3A%3ABarcode#background),
+[class](https://metacpan.org/pod/SVG%3A%3ABarcode#class),
+[foreground](https://metacpan.org/pod/SVG%3A%3ABarcode#foreground),
+[height](https://metacpan.org/pod/SVG%3A%3ABarcode#height),
+[id](https://metacpan.org/pod/SVG%3A%3ABarcode#id),
+[margin](https://metacpan.org/pod/SVG%3A%3ABarcode#margin),
+[scale](https://metacpan.org/pod/SVG%3A%3ABarcode#scale),
+[width](https://metacpan.org/pod/SVG%3A%3ABarcode#width).
 
 ## dotsize
 
@@ -90,8 +90,8 @@ Getter and setter for the size of the dots. Default `1`.
     $qrcode = $qrcode->level($newvalue);
     $qrcode = $qrcode->level('');          # M
 
-Getter and setter for the error correction level.
-One of one of `L` (low), `M` (medium), `Q` (quartile), `H` (high). Default `M`.
+Getter and setter for the error correction level. One of one of `L` (low), `M` (medium), `Q`
+(quartile), `H` (high). Default `M`.
 
 ## version
 
@@ -99,15 +99,16 @@ One of one of `L` (low), `M` (medium), `Q` (quartile), `H` (high). Default `M`.
     $qrcode = $qrcode->version($newvalue);
     $qrcode = $qrcode->version('');          # 0
 
-Getter and setter for the symbol version.
-From `1` to `40`. `0` will adapt the version to the required capacity. Default `0`.
-
-# SEE ALSO
-
-[SVG::Barcode](https://metacpan.org/pod/SVG::Barcode), [Text::QRCode](https://metacpan.org/pod/Text::QRCode).
+Getter and setter for the symbol version. From `1` to `40`. `0` will adapt the version to the
+required capacity. Default `0`.
 
 # AUTHOR & COPYRIGHT
 
-© 2019 by Tekki (Rolf Stöckli).
+© 2019–2020 by Tekki (Rolf Stöckli).
 
-This program is free software, you can redistribute it and/or modify it under the terms of the Artistic License version 2.0.
+This program is free software, you can redistribute it and/or modify it under the terms of the
+Artistic License version 2.0.
+
+# SEE ALSO
+
+[SVG::Barcode](https://metacpan.org/pod/SVG%3A%3ABarcode), [Text::QRCode](https://metacpan.org/pod/Text%3A%3AQRCode).
